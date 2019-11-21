@@ -55,7 +55,7 @@ def DFS(adjanceylist, start, vertices):
 
 def DFS_wrapper(edges):
     
-
+    
     pathDictionary = {}
     adj_list = adjancency_list(edges)
     # vertices        = len(adj_list)
@@ -63,14 +63,15 @@ def DFS_wrapper(edges):
     
     for key in adj_list:
         # F = open('tempDir/{}.txt'.format(key), 'w')
-        F = open('conneceted_components.txt', 'a+')
+        # F = open('conneceted_components.txt', 'a+')
         results = dfsi(adj_list,key)
+        test.append(results)
         
-        # pathDictionary[key] = tuples(results)
-        # test.append(results)
-        # F.write(str(results))
-        F.write(str(results) + "\r\n")
-        F.close()
+        # # pathDictionary[key] = tuples(results)
+        # # test.append(results)
+        # # F.write(str(results))
+        # F.write(str(len(results)) + "\r\n")
+        # F.close()
     # return test
 
 def iterative_dfs(graph, start, path=[]):
@@ -102,3 +103,39 @@ def dfsi(graph, node):
             result.append(x)
             stack.pop()
     return tuple(result)
+
+
+def dfs_recursive(graph, start, visited = None):
+    if visited is None:
+        visited = set()
+    visited.add(start)
+    print(visited)
+    for next_node in graph[start] - visited:
+        print(next_node)
+
+def DFS_wrapper_updated(edges):
+    
+
+    i_seent_it = set()
+    
+    pathDictionary = {}
+    adj_list = adjancency_list(edges)
+    # vertices        = len(adj_list)
+    test = []
+    
+    for key in adj_list:
+        
+        if key in i_seent_it: 
+            print("Skipping idx {} bc i seent it".format(key))
+            continue 
+        
+        results = dfsi(adj_list,key)
+        
+        for idx in results: 
+            i_seent_it.add(idx)
+        
+        
+        # pathDictionary[key] = tuples(results)
+        test.append(results)
+
+    return test

@@ -81,5 +81,3 @@ def nth_highest_degree(n, edges):
     nth_highest = looper(n, reversedTuple)
     
     return nth_highest
-
-    

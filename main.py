@@ -37,9 +37,25 @@ tEdge = list(twDG.edges)
 # wcc     = list(weak_connected(twDG))
 
 adj_list = adjancency_list(tEdge)
-# results  = DFS_wrapper(tEdge)
-for line in adj_list:
-  print(line)
+results  = DFS_wrapper_updated(tEdge)
+
+finite_state_machine = []
+
+for i in results:
+    finite_state_machine.append(len(i))
+
+print(finite_state_machine)
+l0 = results[0]
+l1 = results[1]
+
+inside_network = list(set(l0))
+outside_network = list(set(l1) - set(l0))
+print(outside_network)
+# keys = list(adj_list.keys())
+# keys.sort()
+# print(keys)
+
+
 # from inspect import getsourcefile
 # from os.path import abspath
 
