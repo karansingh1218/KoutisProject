@@ -1,6 +1,5 @@
 import os
 fileDir = os.path.dirname(os.path.realpath('__file__'))
-
 filepath = ".//" + "dataset//"
 
 def adjancency_list(edges):
@@ -18,7 +17,6 @@ def adjancency_list(edges):
             adjList[node[1]] = []
 
     return adjList
-
 
 def DFS(adjanceylist, start, vertices):
     

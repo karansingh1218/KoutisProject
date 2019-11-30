@@ -7,6 +7,3 @@ def strongly_connected(Graph):
 def weak_connected(Graph):
   results = nx.weakly_connected_components(Graph)
   return results
-  
-
-
